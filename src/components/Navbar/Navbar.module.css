@@ -1,0 +1,190 @@
+:root {
+  --nav-bg: rgba(15, 23, 42, 0.92);
+  --nav-border: rgba(148, 163, 184, 0.3);
+  --accent1: #7c3aed;
+  --accent2: #06b6d4;
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+}
+
+/* MAIN NAVBAR */
+.navbar {
+  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 7%;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(
+      90deg,
+      rgba(15, 23, 42, 0.96),
+      rgba(15, 23, 42, 0.88)
+    );
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+}
+
+/* LOGO / TITLE */
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.logoDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle, var(--accent1), var(--accent2));
+  box-shadow: 0 0 10px rgba(129, 140, 248, 0.9);
+}
+
+.title span:nth-child(2) {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.logoTag {
+  font-size: 0.78rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  color: var(--text-muted);
+}
+
+/* MENU WRAPPER */
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+/* MENU ITEMS (DESKTOP) */
+.menuItems {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAV LINKS */
+.navLink,
+.navLinkAccent {
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+/* Underline animation */
+.navLink::after,
+.navLinkAccent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  transition: width 0.25s ease;
+}
+
+.navLink:hover::after,
+.navLinkAccent:hover::after {
+  width: 100%;
+}
+
+.navLink:hover {
+  color: var(--text-main);
+}
+
+/* Special Contact button style */
+.navLinkAccent {
+  color: var(--text-main);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: radial-gradient(circle at top left, rgba(124, 58, 237, 0.42), transparent 55%);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.8);
+}
+
+.navLinkAccent::after {
+  bottom: 0;
+}
+
+.navLinkAccent:hover {
+  border-color: rgba(129, 140, 248, 0.95);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 1);
+}
+
+/* BURGER MENU ICON (MOBILE) */
+.menuBtn {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: none; /* hidden on desktop */
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 6%;
+  }
+
+  .menuItems {
+    position: absolute;
+    top: 56px;
+    right: 6%;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(15, 23, 42, 0.98);
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    padding: 12px 18px;
+    gap: 0.75rem;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.95);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s ease;
+  }
+
+  .menuOpen {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .menuBtn {
+    display: block;
+    margin-left: 1rem;
+  }
+
+  .navLink,
+  .navLinkAccent {
+    padding: 4px 0;
+  }
+
+  .navLinkAccent {
+    padding: 6px 12px;
+  }
+}

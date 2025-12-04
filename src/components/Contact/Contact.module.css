@@ -1,0 +1,140 @@
+:root {
+  --accent1: #7c3aed;
+  --accent2: #06b6d4;
+  --text-light: #e5e7eb;
+  --text-muted: #94a3b8;
+  --glass: rgba(255, 255, 255, 0.06);
+}
+
+.container {
+  padding: 4rem 7%;
+  background: linear-gradient(180deg, #020617, #020814);
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background glow accents */
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: 0;
+}
+
+.container::before {
+  background: rgba(124, 58, 237, 0.28);
+  top: -120px;
+  left: -120px;
+}
+
+.container::after {
+  background: rgba(6, 182, 212, 0.26);
+  bottom: -120px;
+  right: -120px;
+}
+
+/* Title Section */
+.header {
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Links container */
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 420px;
+  position: relative;
+  z-index: 2;
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--glass);
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.4);
+  transition: transform .28s ease, box-shadow .3s ease;
+}
+
+.linkItem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.55);
+  border-color: rgba(124,58,237,0.4);
+}
+
+.iconWrapper {
+  background: rgba(255,255,255,0.08);
+  padding: 10px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.iconWrapper img {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+/* Link text */
+.linkItem a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color .2s ease;
+}
+
+.linkItem:hover a {
+  color: #ffffff;
+}
+
+/* Footer */
+.copy {
+  margin-top: 2.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive */
+@media (max-width: 540px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .links {
+    gap: 14px;
+  }
+}
