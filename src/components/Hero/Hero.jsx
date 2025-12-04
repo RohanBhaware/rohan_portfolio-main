@@ -80,8 +80,8 @@ export const Hero = () => {
           </div>
 
           <div className={styles.socials}>
-            <a href="https://github.com/yourgithub" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/RohanBhaware" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/rohan-bhaware-b0751a259/" target="_blank" rel="noreferrer">LinkedIn</a>
             {/* <a href="https://twitter.com/yourtwitter" target="_blank" rel="noreferrer">Twitter</a> */}
           </div>
         </div>
